@@ -19,8 +19,10 @@ public class QuestionController {
     private QuestionService questionService;
 
     @GetMapping
-    public String index(Model model) {
-        model.addAttribute("questions", questionService.getAll());
+    public String index(Model model, HttpServletRequest request) {
+        if (request.getParameter("testId") != null) {
+            model.addAttribute("questions", questionService.getTestsByThemeId(Long.parseLong(request.getParameter("testId"))));
+        }
         return "test";
     }
 

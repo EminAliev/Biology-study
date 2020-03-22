@@ -25,6 +25,7 @@ public class Question {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "question")
     private Set<Answer> answers = new HashSet<Answer>(0);
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "question")
-    private Set<Answer> answers = new HashSet<Answer>(0);
+    @ManyToOne
+    @JoinColumn(name = "theme_id")
+    private Theme theme;
 }

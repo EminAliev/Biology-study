@@ -18,7 +18,7 @@ public class ThemeController {
     public ThemeService themeService;
 
     @GetMapping("/theme")
-    public String getUsersPage(Model model, HttpServletRequest request) {
+    public String getThemePage(Model model, HttpServletRequest request) {
         List<ThemeDto> themes = themeService.listThemes();
         model.addAttribute("themes", themes);
         model.addAttribute("url", request.getContextPath());
@@ -27,4 +27,7 @@ public class ThemeController {
         }
         return "themes";
     }
+
+
+
 }

@@ -6,6 +6,7 @@ import ru.itis.biology.models.Answer;
 import ru.itis.biology.models.Question;
 import ru.itis.biology.repositories.QuestionRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -27,5 +28,10 @@ public class QuestionServiceImpl implements QuestionService {
             return answer.getId();
         }
         return Long.valueOf(-1);
+    }
+
+    @Override
+    public List<Question> getTestsByThemeId(Long themeId) {
+        return questionRepository.findAllByThemeId(themeId);
     }
 }

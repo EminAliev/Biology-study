@@ -1,4 +1,4 @@
-<h3>Quiz</h3>
+<h3>Test</h3>
 <form method="post" action="/test/submit">
 <ol type="1">
     <#list questions as question>
