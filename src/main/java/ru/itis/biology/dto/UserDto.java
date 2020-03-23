@@ -21,6 +21,7 @@ public class UserDto {
     private String imageUrl;
     private Integer age;
     private Integer classNumber;
+    private String phone;
 
     public static UserDto from(User user) {
         UserDto result = UserDto.builder()
@@ -30,6 +31,7 @@ public class UserDto {
                 .age(user.getAge())
                 .classNumber(user.getClassNumber())
                 .id(user.getId())
+                .phone(user.getPhone())
                 .build();
 
         if (user.getImage() != null) {

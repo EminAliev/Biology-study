@@ -26,6 +26,7 @@ public class User {
     private String email;
     private String hashPassword;
     private LocalDateTime createdAt;
+    private String phone;
 
     @Enumerated(value = EnumType.STRING)
     private State state;

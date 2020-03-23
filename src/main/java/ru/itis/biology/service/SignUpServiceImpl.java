@@ -25,6 +25,9 @@ public class SignUpServiceImpl implements SignUpService {
     private EmailService emailService;
 
     @Autowired
+    private SmsService smsService;
+
+    @Autowired
     private ExecutorService executorService;
 
     private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
@@ -41,6 +44,7 @@ public class SignUpServiceImpl implements SignUpService {
                 .fullname(form.getFullname())
                 .age(form.getAge())
                 .classNumber(form.getClassNumber())
+                .phone(form.getPhone())
                 .createdAt(LocalDateTime.now())
                 .state(State.NOT_CONFIRMED)
                 .role(Role.USER)
@@ -53,5 +57,8 @@ public class SignUpServiceImpl implements SignUpService {
             emailService.sendMail("Регистрация", "Привет, " + user.getName()
                     + ". " + "Для подтверждения вашего email адреса пройдите по ссылке " + "http://localhost:8080/confirm/" + user.getConfirmCode(), user.getEmail());
         });
+
+        smsService.send(form);
+
     }
 }

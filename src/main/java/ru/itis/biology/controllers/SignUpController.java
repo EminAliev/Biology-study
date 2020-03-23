@@ -6,12 +6,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import ru.itis.biology.dto.SignUpDto;
 import ru.itis.biology.service.SignUpService;
+import ru.itis.biology.service.SmsService;
 
 
 @Controller
 public class SignUpController {
+
     @Autowired
     private SignUpService service;
+
 
     @GetMapping("/signUp")
     public String getSignUpPage() {

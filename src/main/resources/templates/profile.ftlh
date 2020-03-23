@@ -109,7 +109,9 @@
 								 <tr><td class="active">Email:</td><td>${model.user.email}</td></tr>
 								 <tr><td class="active">Класс:</td><td>${model.user.classNumber}</td></tr>
 								 <tr><td class="active">Возраст:</td><td>${model.user.age}</td></tr>
-							</tbody>
+								 <tr><td class="active">Телефон:</td><td>${model.user.phone}</td></tr>
+
+								 </tbody>
 							</table>
 						</div>
 						 <div class="tab-pane fade" id="contact">

@@ -45,6 +45,11 @@
                     </div>
 
                     <div class="form-textbox">
+                        <label for="phone">Телефон</label>
+                        <input type="phone" name="phone"/>
+                    </div>
+
+                    <div class="form-textbox">
                         <label for="password">Пароль</label>
                         <input type="password" name="password"/>
                     </div>
