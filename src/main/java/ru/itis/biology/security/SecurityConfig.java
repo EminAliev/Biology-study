@@ -28,7 +28,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .antMatchers("/profile").authenticated()
                 .antMatchers("/signUp").permitAll()
-                .antMatchers("/confirm/**").permitAll();
+                .antMatchers("/confirm/**").permitAll()
+                .antMatchers("/theme").authenticated()
+                .antMatchers("/theme/*").authenticated()
+                .antMatchers("/test/*").authenticated();
 
         http.formLogin()
                 .loginPage("/signIn")
@@ -36,7 +39,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .failureUrl("/signIn?error")
                 .usernameParameter("email")
                 .permitAll();
-
     }
 
     @Autowired

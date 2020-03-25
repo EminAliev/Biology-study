@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import ru.itis.biology.dto.ThemeDto;
-import ru.itis.biology.dto.UserDto;
 import ru.itis.biology.service.ThemeService;
 
 import javax.servlet.http.HttpServletRequest;

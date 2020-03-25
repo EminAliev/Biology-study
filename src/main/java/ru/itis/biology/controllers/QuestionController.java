@@ -23,7 +23,7 @@ public class QuestionController {
         if (request.getParameter("testId") != null) {
             model.addAttribute("questions", questionService.getTestsByThemeId(Long.parseLong(request.getParameter("testId"))));
         }
-        return "test";
+        return "tests";
     }
 
     @PostMapping(value = "submit")
