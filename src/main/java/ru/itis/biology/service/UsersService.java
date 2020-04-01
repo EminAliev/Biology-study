@@ -15,4 +15,8 @@ public interface UsersService {
 
     List<UserDto> search(String name);
 
+    User getCurrentUser();
+
+    User getUserByAuthentication(Authentication authentication);
+
 }
