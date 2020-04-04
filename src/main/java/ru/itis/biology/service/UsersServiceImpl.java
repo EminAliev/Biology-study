@@ -39,17 +39,17 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
-    public User getCurrentUser(){
+    public User getCurrentUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         return getUserByAuthentication(authentication);
     }
 
     @Override
     public User getUserByAuthentication(Authentication authentication) {
-        if(authentication == null){
+        if (authentication == null) {
             return null;
         }
-        UserDetailsImpl currentUserDetails = (UserDetailsImpl)authentication.getPrincipal();
+        UserDetailsImpl currentUserDetails = (UserDetailsImpl) authentication.getPrincipal();
         User currentUserModel = currentUserDetails.getUser();
         Long currentUserId = currentUserModel.getId();
         return usersRepository.findById(currentUserId).orElse(null);

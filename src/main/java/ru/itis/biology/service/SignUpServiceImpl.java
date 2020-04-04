@@ -47,7 +47,7 @@ public class SignUpServiceImpl implements SignUpService {
                 .phone(form.getPhone())
                 .createdAt(LocalDateTime.now())
                 .state(State.NOT_CONFIRMED)
-                .role(Role.USER)
+                .role(Role.valueOf(form.getRole()))
                 .confirmCode(UUID.randomUUID().toString())
                 .build();
 

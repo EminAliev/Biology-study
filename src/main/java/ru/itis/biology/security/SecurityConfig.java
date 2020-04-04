@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -25,13 +26,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
                 .antMatchers("/users/**").hasAuthority("ADMIN")
-                .antMatchers("/").permitAll()
+                .antMatchers("/", "/css/**").permitAll()
                 .antMatchers("/profile").authenticated()
                 .antMatchers("/signUp").permitAll()
                 .antMatchers("/confirm/**").permitAll()
                 .antMatchers("/theme").authenticated()
+                .antMatchers("/theme/submit/*").authenticated()
                 .antMatchers("/theme/*").authenticated()
-                .antMatchers("/test/*").authenticated();
+                .antMatchers("/test/*").authenticated()
+                .antMatchers("/static/**").permitAll();
+
 
         http.formLogin()
                 .loginPage("/signIn")
@@ -39,6 +43,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .failureUrl("/signIn?error")
                 .usernameParameter("email")
                 .permitAll();
+    }
+
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        //Web resources
+        web.ignoring().antMatchers("/css/**");
+        web.ignoring().antMatchers("/scripts/**");
+        web.ignoring().antMatchers("/images/**");
     }
 
     @Autowired

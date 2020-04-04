@@ -26,8 +26,8 @@ public class Comment {
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "theme_id", nullable = false)
-    private Theme theme;
+    @JoinColumn(name = "news_id", nullable = false)
+    private News news;
 
     private Date createdDate;
 }

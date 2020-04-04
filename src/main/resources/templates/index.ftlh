@@ -43,6 +43,9 @@
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/theme">Темы</a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/news">Новости</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/logout">Выйти</a>
           </li>
         </ul>
@@ -61,6 +64,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/news">Новости</a>
+          </li>
           <li class="nav-item mx-0 mx-lg-1">
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/signIn">Войти</a>
           </li>
@@ -126,8 +132,8 @@
             </div>
             <div class="col-md-4 mb-5">
               <i class="fa fa-table fa-4x grey-text"></i>
-              <h4 class="my-4 font-weight-bold">Расписание</h4>
-              <p class="grey-text">Возможность посмотреть свое расписание</p>
+              <h4 class="my-4 font-weight-bold">Новости</h4>
+              <p class="grey-text">Возможность почитать новости о биологии и образовании</p>
             </div>
           </div>
       </section>

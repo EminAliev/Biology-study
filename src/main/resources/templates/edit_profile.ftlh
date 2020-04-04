@@ -14,7 +14,7 @@
     <link href="css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
     <link href="css/profileStyle.css" rel="stylesheet">
-	<link href="css/testStyle.css" rel="stylesheet">
+    <link href="css/testStyle.css" rel="stylesheet">
 
     <script src="/js/jquery.js"></script>
     <script>
@@ -88,12 +88,20 @@
                     </div>
                     <div class="panel-body">
                         <div class="text-center" id="author">
-                            <#if model.user.imageUrl??>
-                                <img class="img-circle" width='200' height='200' src="${model.user.imageUrl}">
+                            <#if user.imageUrl??>
+                                <img class="img-circle" width='200' height='200' src="${user.imageUrl}">
                             <#else>
                                 <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw0NDQ0PDQ0NDQ4NDQ0NDg0NDQ8NDQ8NFREWFhURFRUYHSggGBolGxgVITEhKSkrLi4uFx8zODMtNygtLisBCgoKBQUFDgUFDisZExkrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAOEA4QMBIgACEQEDEQH/xAAbAAEBAQEBAQEBAAAAAAAAAAAAAQUEAwIGB//EADEQAQACAAMFBgQHAQEAAAAAAAABAgMFEQQhMUFREiIyYXGRcoGx0RMjM0JSoeGCYv/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwD+0igIqAKIAKiggoCCgIKAgoCCgIKAgoCCoAAAACgAIqAAoIKAAAAAA+b3isa2mIjrM6A+hx4mY4ccNbekbnPbNZ5Uj5yDUGVGa2/hX3l64eaVnxVmPON4NAeeFjVvGtbRP1egAAAACKgAKCCgIqKAioAqKCKAAADzxcWtI1tOkfV9WtERMzuiI1n0YW1bROJbWeH7Y6QDox8ytPgjsx1nfZx3vNp1tMzPWZ1fIAAAAC0vNZ1rMxMc4auBmVJiO3rW3OYjWJ82SA/Q4WNW/htE6cX2wNmxpw7xaOHCY6w34nXfHPeAKgAoCCgIKAigAioAqKAAAADhzbE0pFf5T/UMh35vbv1jpX6y4AAAAAAAAAG7sF+1hU8o7PtuYTYyr9L/AKkHaigIKAgoCCgIoAIqAKigAAAAx82/Uj4I+suJoZxXvUnrWY9p/wBZ4AAAAAAAADayuPyo85tP9sVu7BGmFT01/sHQAAAAAAigAACKAigAAAADPzivcrPS2nvDKaGb42sxSOXen1Z4AAAAAAAADe2L9LD+GGC1MpxtYmk8u9HpzBogAIoCCgIKAigAAAAAAAADGzWPzfWtXG0M4r3qT1rMe0/6zwAAAAAAAAHXlf6sfDZyO7KK/mTPSv1kGsCgAAAAAAgKAAAAAIoAAOPNMLtYescaTr8ubGfpXBt+yYcUtatdJjSd3Dj0BkgAAAAAAANjK8Ga0mZ43nX5cnxl+x17MXtGszviJ4RDQAAAAAEUAAEVFAAAAAAAAAeO2RrhX+GXs+cSutZjrEwD84ExMbp4xun1AAAAAAfeDhTe0VjnPtHUG9gRpSkf+a/R6JEKAIAoAAAAAIqKAAAAAAAAAD4xsSKVm08oBwZrgRpF43TrEW8/NmPrEvNpmZmZmZ1fIAAAADYyvBitO1zvz8ujHWLTHCZj0mYB+kHhseN+JSJ58J9XsCiAKIAogCiKCKgCiKAAAAAPjFxa0jW1oj14uDGzSP2V187fYGkyc02ntT2KzurPe856PDE23FtxtMR0ruc4AAAAAAAAOvL9p/DtpPhtunynlLZfm3thbViU8Np06TvgG+MvBzSf31+dfs78HaKX8Nony4T7A9RFAEUAAAQBQfGJiVrGtpiI8wfY4MXM6R4Im09Z3Q4cbbMS/G2kdK7oBq4+2YdOM6z0rvln4+ZXturpSPeziAW1pmdZmZnrO9AAAAAAAAAAAAAAIkAdeBmGJXj348+Pu0MDbsO/Psz0t92IA/SjAwdqxKeG06dJ3w7sHNInx1mPOu+AaI88LGpfw2ifq9AAAcG3bd2JmtPFztyj/WVe82nW0zM9Z3pM6gAAAAAAAAAAAAAAAAAAAAAAAALEzE6xMxPWN0tHYswnWK4nPdFvuzQH6Ufnvxr/AMre8gPMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQB6YXH5PQAAAAAAAAAAAAAHxi8gB5gAAAAAAA//9k=">
                             </#if>
-                            <h3>${model.user.name}</h3>
+                            <h3>${user.name}</h3>
+                            <div>
+                                <input type="file" id="file" name="file" placeholder="Имя файла..."/>
+                                <button onclick="sendFile()">
+                                    Загрузить фотографию
+                                </button>
+                                <input type="hidden" id="file_hidden">
+                                <div class="filename"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -105,34 +113,37 @@
                         <hr>
                         <table class="table table-th-block">
                             <tbody>
-                            <tr>
-                                <td class="active">Имя:</td>
-                                <td>${model.user.name}</td>
-                            </tr>
-                            <tr>
-                                <td class="active">Фамилия:</td>
-                                <td>${model.user.fullname}</td>
-                            </tr>
-                            <tr>
-                                <td class="active">Email:</td>
-                                <td>${model.user.email}</td>
-                            </tr>
-                            <tr>
-                                <td class="active">Класс:</td>
-                                <td>${model.user.classNumber}</td>
-                            </tr>
-                            <tr>
-                                <td class="active">Возраст:</td>
-                                <td>${model.user.age}</td>
-                            </tr>
-                            <tr>
-                                <td class="active">Телефон:</td>
-                                <td>${model.user.phone}</td>
-                            </tr>
-
+                            <form method="post" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">Имя</label>
+                                    <input type="name" class="form-control" id="name" name="name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput2">Фамилия</label>
+                                    <input type="fullname" class="form-control" id="fullname" name="fullname">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput3">E-mail</label>
+                                    <input type="email" class="form-control" id="email"
+                                           placeholder="username@mail.ru"
+                                    name="email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput4">Класс</label>
+                                    <input type="classNumber" class="form-control" id="classNumber" name="classNumber">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput5">Возраст</label>
+                                    <input type="age" class="form-control" id="age" name="age">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput6">Телефон</label>
+                                    <input type="phone" class="form-control" id="phone" name="phone">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Сохранить</button>
+                            </form>
                             </tbody>
                         </table>
-                        <input type="button" class="btn btn-primary" value="Редактировать" onclick="location.href = 'http://localhost:8080/editProfile';">
                     </div>
                     <div class="tab-pane fade" id="contact">
                     </div>
@@ -140,6 +151,17 @@
             </div>
         </div>
     </div>
+
+
+    </tbody>
+    </table>
+</div>
+<div class="tab-pane fade" id="contact">
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
 </div><!-- /.main -->

@@ -7,7 +7,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import ru.itis.biology.models.User;
 import ru.itis.biology.service.QuestionService;
+import ru.itis.biology.service.UsersService;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -17,6 +19,9 @@ public class QuestionController {
 
     @Autowired
     private QuestionService questionService;
+
+    @Autowired
+    private UsersService usersService;
 
     @GetMapping
     public String index(Model model, HttpServletRequest request) {
@@ -39,5 +44,7 @@ public class QuestionController {
         request.setAttribute("score", score);
         return "result";
     }
+    
+
 
 }

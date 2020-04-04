@@ -4,6 +4,7 @@ package ru.itis.biology.models;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -21,4 +22,5 @@ public class Theme {
     private String nameTheme;
 
     private String textTheme;
+
 }
