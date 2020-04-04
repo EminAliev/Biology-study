@@ -9882,6 +9882,12 @@ form .row:first-child .floating-label-form-group {
   font-size:100px
 }
 
+.confirm {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
 
 
 

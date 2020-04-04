@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
           type="text/css">
 
-    <link href="css/testStyle.css" rel="stylesheet">
+    <link href="/css/testStyle.css" rel="stylesheet">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
@@ -43,10 +43,13 @@
         </div>
     </div>
 </nav>
-<#if isConfirmed == true>
-    <h1>Подтверждено!</h1>
-<#else>
-    <h1>Вы че</h1>
-</#if>
+
+<div class="center-text">
+    <#if isConfirmed == true>
+        <h1 class="confirm">Подтверждено!</h1>
+    <#else>
+        <h1>Вы че</h1>
+    </#if>
+</div>
 </body>
 </html>
