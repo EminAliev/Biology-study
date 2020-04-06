@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<#import "spring.ftl" as spring />
 <html lang="en">
 
 <head>
@@ -19,6 +20,18 @@
   <!-- Your custom styles (optional) -->
   <link href="css/home_style.css" rel="stylesheet">
 
+  <script>
+    $('#input0').click(function() {
+      if($("select#input0 :selected").val() == "rus") {
+        $("select#input0").attr('style', 'background-image:url(img/lng_ru.png);');
+      }
+      if($("select#input0 :selected").val() == "eng") {
+        $("select#input0").attr('style', 'background-image:url(img/lng_eng.png);');
+      }
+      console.log('select color: '+$("select#input0 :selected").val());
+    });
+  </script>
+
 
 </head>
 
@@ -37,16 +50,24 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/profile">Мой профиль</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/profile"><@spring.message 'page.nav.profile'/></a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/theme">Темы</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/theme"><@spring.message 'page.nav.theme'/></a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/news">Новости</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/news"><@spring.message 'page.nav.news'/></a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/logout">Выйти</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/logout"><@spring.message 'page.nav.logout'/></a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <select onchange="window.location.href=this.options[this.selectedIndex].value" style="display: block;
+  padding: 0.5rem 1rem; color: black">
+              <option style="color: black"><@spring.message 'page.nav.language'/></option>
+              <option value="http://localhost:8080/?lang=ru">Русский</option>
+              <option value="http://localhost:8080/?lang=en">English</option>
+            </select>
           </li>
         </ul>
       </div>
@@ -65,13 +86,21 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/news">Новости</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/news"><@spring.message 'page.nav.news'/></a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/signIn">Войти</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/signIn"><@spring.message 'page.nav.signin'/></a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/signUp">Регистрация</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/signUp"><@spring.message 'page.nav.signup'/></a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <select onchange="window.location.href=this.options[this.selectedIndex].value" style="display: block;
+  padding: 0.5rem 1rem; color: black">
+              <option style="color: black"><@spring.message 'page.nav.language'/></option>
+              <option value="http://localhost:8080/?lang=ru">Русский</option>
+              <option value="http://localhost:8080/?lang=en">English</option>
+            </select>
           </li>
         </ul>
       </div>
@@ -90,7 +119,7 @@
         </div>
         <div class="divider-custom-line"></div>
       </div>
-      <p class="masthead-subheading font-weight-light mb-0">Сайт, который поможет тебе в обучении в сфере биологии</p>
+      <p class="masthead-subheading font-weight-light mb-0"><@spring.message 'main.page.propose'/></p>
     </div>
   </header>
 
@@ -110,30 +139,30 @@
     <div class="container">
       <section id="proposals" class="text-center">
           <h2 class="mb-5 font-weight-bold">
-            Функции сайта
+            <@spring.message 'main.page.functions'/>
           </h2>
           <div class="row d-flex justify-content-center mb-4">
             <div class="col-md-8">
               <p class="grey-text">
-                На сайте имеется:
+                <@spring.message 'main.page.haved'/>
               </p>
             </div>
-          </div> 
+          </div>
           <div class="row">
             <div class="col-md-4 mb-5">
-              <i class="fa fa-comment-medical fa-4x grey-text"></i> 
-              <h4 class="my-4 font-weight-bold">Темы</h4>
-              <p class="grey-text">Возможность изучать темы по биологии</p>
+              <i class="fa fa-comment-medical fa-4x grey-text"></i>
+              <h4 class="my-4 font-weight-bold"><@spring.message 'main.page.themes'/></h4>
+              <p class="grey-text"><@spring.message 'main.page.themes.propose'/></p>
             </div>
             <div class="col-md-4 mb-5">
               <i class="fa fa-newspaper fa-4x grey-text"></i>
-              <h4 class="my-4 font-weight-bold">Тесты</h4>
-              <p class="grey-text">Проверить свои полученные знания</p>
+              <h4 class="my-4 font-weight-bold"><@spring.message 'main.page.tests'/></h4>
+              <p class="grey-text"><@spring.message 'main.page.tests.propose'/></p>
             </div>
             <div class="col-md-4 mb-5">
               <i class="fa fa-table fa-4x grey-text"></i>
-              <h4 class="my-4 font-weight-bold">Новости</h4>
-              <p class="grey-text">Возможность почитать новости о биологии и образовании</p>
+              <h4 class="my-4 font-weight-bold"><@spring.message 'main.page.news'/></h4>
+              <p class="grey-text"><@spring.message 'main.page.news.propose'/></p>
             </div>
           </div>
       </section>
@@ -141,7 +170,7 @@
     </div>
   </section>
 
-  
+
   <section class="copyright py-4 text-center text-white">
     <div class="container">
       <small>BIOLOGY STUDY</small>

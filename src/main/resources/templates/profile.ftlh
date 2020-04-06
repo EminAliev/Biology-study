@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<#import "spring.ftl" as spring />
 <html lang="en">
 
 <head>
@@ -60,16 +61,24 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/profile">Мой профиль</a>
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/profile"><@spring.message 'page.nav.profile'/></a>
                 </li>
                 <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/theme">Темы</a>
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/theme"><@spring.message 'page.nav.theme'/></a>
                 </li>
                 <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/news">Новости</a>
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/news"><@spring.message 'page.nav.news'/></a>
                 </li>
                 <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/logout">Выйти</a>
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/logout"><@spring.message 'page.nav.logout'/></a>
+                </li>
+                <li class="nav-item mx-0 mx-lg-1">
+                    <select onchange="window.location.href=this.options[this.selectedIndex].value" style="display: block;
+  padding: 0.5rem 1rem; color: black">
+                        <option style="color: black"><@spring.message 'page.nav.language'/></option>
+                        <option value="http://localhost:8080/?lang=ru">Русский</option>
+                        <option value="http://localhost:8080/?lang=en">English</option>
+                    </select>
                 </li>
             </ul>
         </div>
@@ -100,39 +109,38 @@
             </div>
             <div class="col-lg-8 col-md-8 col-xs-12">
                 <div class="panel">
-                    <p>О пользователе</p>
+                    <p><@spring.message 'profile.about_user'/></p>
                     <div id="myTabContent" class="tab-content">
-                        <hr>
                         <table class="table table-th-block">
                             <tbody>
                             <tr>
-                                <td class="active">Имя:</td>
+                                <td class="active"><@spring.message 'profile.name'/></td>
                                 <td>${model.user.name}</td>
                             </tr>
                             <tr>
-                                <td class="active">Фамилия:</td>
+                                <td class="active"><@spring.message 'profile.surname'/></td>
                                 <td>${model.user.fullname}</td>
                             </tr>
                             <tr>
-                                <td class="active">Email:</td>
+                                <td class="active"><@spring.message 'profile.email'/></td>
                                 <td>${model.user.email}</td>
                             </tr>
                             <tr>
-                                <td class="active">Класс:</td>
+                                <td class="active"><@spring.message 'profile.classNumber'/></td>
                                 <td>${model.user.classNumber}</td>
                             </tr>
                             <tr>
-                                <td class="active">Возраст:</td>
+                                <td class="active"><@spring.message 'profile.age'/></td>
                                 <td>${model.user.age}</td>
                             </tr>
                             <tr>
-                                <td class="active">Телефон:</td>
+                                <td class="active"><@spring.message 'profile.phone'/></td>
                                 <td>${model.user.phone}</td>
                             </tr>
 
                             </tbody>
                         </table>
-                        <input type="button" class="btn btn-primary" value="Редактировать" onclick="location.href = 'http://localhost:8080/editProfile';">
+                        <input type="button" class="btn btn-primary" value="<@spring.message 'profile.edit'/>" onclick="location.href = 'http://localhost:8080/editProfile';">
                     </div>
                     <div class="tab-pane fade" id="contact">
                     </div>
