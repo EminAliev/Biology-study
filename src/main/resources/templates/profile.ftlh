@@ -76,8 +76,8 @@
                     <select onchange="window.location.href=this.options[this.selectedIndex].value" style="display: block;
   padding: 0.5rem 1rem; color: black">
                         <option style="color: black"><@spring.message 'page.nav.language'/></option>
-                        <option value="http://localhost:8080/?lang=ru">Русский</option>
-                        <option value="http://localhost:8080/?lang=en">English</option>
+                        <option value="http://localhost:8080/profile?lang=ru">Русский</option>
+                        <option value="http://localhost:8080/profile?lang=en">English</option>
                     </select>
                 </li>
             </ul>
