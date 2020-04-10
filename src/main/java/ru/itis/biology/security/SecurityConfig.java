@@ -34,7 +34,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/theme/submit/*").authenticated()
                 .antMatchers("/theme/*").authenticated()
                 .antMatchers("/test/*").authenticated()
-                .antMatchers("/static/**").permitAll();
+                .antMatchers("/static/**").permitAll()
+                .antMatchers("/support").authenticated();
 
 
         http.formLogin()

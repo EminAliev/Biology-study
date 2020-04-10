@@ -19,4 +19,8 @@ public interface UsersService {
 
     User getUserByAuthentication(Authentication authentication);
 
+    User getAdmin();
+
+    List<User> getAllUser();
+
 }

@@ -6,6 +6,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import ru.itis.biology.dto.UserDto;
+import ru.itis.biology.models.Role;
 import ru.itis.biology.models.User;
 import ru.itis.biology.repositories.UsersRepository;
 import ru.itis.biology.security.UserDetailsImpl;
@@ -55,5 +56,14 @@ public class UsersServiceImpl implements UsersService {
         return usersRepository.findById(currentUserId).orElse(null);
     }
 
+    @Override
+    public User getAdmin() {
+        Optional<User> userOptional = usersRepository.findByRole(Role.ADMIN);
+        return userOptional.orElse(null);
+    }
 
+    @Override
+    public List<User> getAllUser() {
+        return usersRepository.findAll();
+    }
 }
