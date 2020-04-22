@@ -18,7 +18,9 @@
     <div class="container">
         <div class="sign-up-content">
             <#if error.isPresent()>
-                <div class="alert-danger" style="text-align: center;color: red" role="alert">Email или пароль введены неверно</div>
+                <div class="alert-danger" style="text-align: center;color: red" role="alert">Email или пароль введены
+                    неверно
+                </div>
             </#if>
             <form action="/signIn" method="POST" class="signup-form">
                 <h2 class="form-title">Войти</h2>
@@ -32,7 +34,10 @@
                     <input type="password" name="password" required
                            minlength="6" maxlength="20">
                 </div>
-
+                <label>
+                    <input type="checkbox" name="remember-me">Запомни меня
+                </label>
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
                 <div class="form-textbox">
                     <input type="submit" name="submit" id="submit" class="submit" value="Войти"/>
                 </div>

@@ -12,7 +12,7 @@ public class AdminController {
     @Autowired
     private UsersService usersService;
 
-    @GetMapping("/admin")
+    @GetMapping("/adminPage")
     public String getPage(Model model) {
         model.addAttribute("users", usersService.getUsers());
         return "admin";
