@@ -14,4 +14,5 @@ public interface NewsRepository extends JpaRepository<News, Long> {
     Page<News> search(@Param("query") String query,
                       Pageable pageable);
 
+
 }

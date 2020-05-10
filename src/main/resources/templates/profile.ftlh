@@ -15,7 +15,7 @@
     <link href="css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
     <link href="css/profileStyle.css" rel="stylesheet">
-	<link href="css/testStyle.css" rel="stylesheet">
+    <link href="css/testStyle.css" rel="stylesheet">
 
     <script src="/js/jquery.js"></script>
     <script>
@@ -45,6 +45,7 @@
         }
     </script>
 
+
 </head>
 
 <body>
@@ -61,19 +62,24 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/profile"><@spring.message 'page.nav.profile'/></a>
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                       href="/profile"><@spring.message 'page.nav.profile'/></a>
                 </li>
                 <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/theme"><@spring.message 'page.nav.theme'/></a>
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                       href="/theme"><@spring.message 'page.nav.theme'/></a>
                 </li>
                 <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/news"><@spring.message 'page.nav.news'/></a>
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                       href="/news"><@spring.message 'page.nav.news'/></a>
                 </li>
                 <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/support"><@spring.message 'page.nav.support'/> </a>
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                       href="/support"><@spring.message 'page.nav.support'/> </a>
                 </li>
                 <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/logout"><@spring.message 'page.nav.logout'/></a>
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                       href="/logout"><@spring.message 'page.nav.logout'/></a>
                 </li>
                 <li class="nav-item mx-0 mx-lg-1">
                     <select onchange="window.location.href=this.options[this.selectedIndex].value" style="display: block;
@@ -143,7 +149,9 @@
 
                             </tbody>
                         </table>
-                        <input type="button" class="btn btn-primary" value="<@spring.message 'profile.edit'/>" onclick="location.href = 'http://localhost:8080/editProfile';">
+                        <input type="button" class="btn btn-primary" value="<@spring.message 'profile.edit'/>"
+                               onclick="location.href = 'http://localhost:8080/editProfile';">
+
                     </div>
                     <div class="tab-pane fade" id="contact">
                     </div>

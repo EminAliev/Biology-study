@@ -129,7 +129,7 @@
                                     <label for="exampleFormControlInput3">E-mail</label>
                                     <input type="email" class="form-control" id="email"
                                            placeholder="username@mail.ru"
-                                    name="email">
+                                           name="email">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlInput4">Класс</label>
