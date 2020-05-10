@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<#import "spring.ftl" as spring />
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,53 +11,63 @@
 
     <link rel="stylesheet" href="css/style.css">
 </head>
+<style>
+    .error {
+        color: #ff0000;
+    }
+</style>
+
 <body>
 
 <div class="main">
 
     <div class="container">
         <div class="sign-up-content">
+            <@spring.bind "form"/>
             <form action="/signUp" method="POST" class="signup-form">
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
                 <h2>Регистрация</h2>
                 <div class="form-textbox">
                     <label for="name">Имя</label>
-                    <input type="name" name="name" required
-                           pattern="[A-Za-z]+" minlength="6" maxlength="20"/>
+                    <@spring.formInput "form.name"/>
+                    <@spring.showErrors "<br>"/>
                 </div>
 
                 <div class="form-textbox">
                     <label for="fullname">Фамилия</label>
-                    <input type="fullname" name="fullname" required
-                           pattern="[A-Za-z]+" minlength="6" maxlength="20"/>
+                    <@spring.formInput "form.fullname"/>
+                    <@spring.showErrors "<br>"/>
                 </div>
 
                 <div class="form-textbox">
                     <label for="age">Возраст</label>
-                    <input type="age" name="age"/>
+                    <@spring.formInput "form.age"/>
+                    <@spring.showErrors "<br>"/>
                 </div>
 
                 <div class="form-textbox">
                     <label for="classNumber">Класс</label>
-                    <input type="classNumber" name="classNumber"/>
+                    <@spring.formInput "form.classNumber"/>
+                    <@spring.showErrors "<br>"/>
                 </div>
 
 
                 <div class="form-textbox">
                     <label for="email">Email</label>
-                    <input type="email" name="email" required/>
+                    <@spring.formInput "form.email"/>
+                    <@spring.showErrors "<br>"/>
                 </div>
 
                 <div class="form-textbox">
                     <label for="phone">Телефон</label>
-                    <input type="phone" name="phone"
-                           pattern="^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$"
-                           required/>
+                    <@spring.formInput "form.phone"/>
+                    <@spring.showErrors "<br>"/>
                 </div>
 
                 <div class="form-textbox">
                     <label for="password">Пароль</label>
-                    <input type="password" name="password" required
-                           minlength="6" maxlength="20"/>
+                    <@spring.formInput "form.password"/>
+                    <@spring.showErrors "<br>","error"/>
                 </div>
 
                 <div class="form-textbox">
