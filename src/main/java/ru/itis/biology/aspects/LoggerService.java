@@ -7,6 +7,8 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
+
 
 @Component
 @Aspect
@@ -30,5 +32,18 @@ public class LoggerService {
     @Before(value = "execution(* ru.itis.biology.service.CommentService.send(..))")
     public void logComment(JoinPoint joinPoint) {
         System.out.println("Try to send comment");
+    }
+
+    @Before(value = "execution(* ru.itis.biology.service.*.*(*))")
+    public void logBefore(JoinPoint joinPoint) {
+        System.out.println("Метод вызывается");
+        Date date = new Date();
+        System.out.println("Время: " + date);
+        System.out.println("Сигнатура метода: " + joinPoint.getSignature());
+        System.out.print("Аргументы метода: ");
+        for (Object arguments : joinPoint.getArgs()) {
+            System.out.print(arguments + "\t");
+        }
+        System.out.println("\n");
     }
 }
