@@ -66,4 +66,9 @@ public class UsersServiceImpl implements UsersService {
     public List<User> getAllUser() {
         return usersRepository.findAll();
     }
+
+    @Override
+    public List<User> getUserbyMonthDay(int month, int day) {
+        return usersRepository.findByDayBirthday(month, day);
+    }
 }

@@ -51,4 +51,9 @@ public class CommentServiceImpl implements CommentService {
         return commentRepository.findAllByNews_Id(id);
     }
 
+    @Override
+    public List<Comment> getAll() {
+        return commentRepository.findAll();
+    }
+
 }

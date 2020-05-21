@@ -71,6 +71,13 @@
                 </div>
 
                 <div class="form-textbox">
+                    <label for="password">День рождения</label>
+                    <@spring.formInput "form.birthday"/>
+                    <@spring.showErrors "<br>","error"/>
+                </div>
+
+
+                <div class="form-textbox">
                     <select name="role" class="browser-default custom-select" style="
     background: transparent;
     display: block;

@@ -23,4 +23,6 @@ public interface UsersService {
 
     List<User> getAllUser();
 
+    List<User> getUserbyMonthDay(int month, int day);
+
 }

@@ -13,7 +13,6 @@ public interface NewsService {
 
     Optional<News> findByID(Long id);
 
-
     void save(News news);
 
     void delete(News news);

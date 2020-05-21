@@ -13,5 +13,6 @@ public interface CommentService {
 
     List<Comment> getComments(long id);
 
+    List<Comment> getAll();
 
 }

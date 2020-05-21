@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
@@ -39,4 +40,6 @@ public class User implements Serializable {
 
     @OneToOne(mappedBy = "user")
     private FileInfo image;
+
+    private LocalDate birthday;
 }

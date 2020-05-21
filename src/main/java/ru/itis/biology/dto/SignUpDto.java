@@ -5,6 +5,7 @@ import lombok.Data;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import java.time.LocalDate;
 
 @Data
 public class SignUpDto {
@@ -36,4 +37,7 @@ public class SignUpDto {
 
     @NotNull(message = "Напишите свою роль")
     private String role;
+
+    @NotNull(message = "Напишите вашу дату рождения")
+    private LocalDate birthday;
 }
